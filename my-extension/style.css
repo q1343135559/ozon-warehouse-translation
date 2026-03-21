@@ -1,26 +1,42 @@
-/* 悬浮按钮保持不变 */
+/* 悬浮切换按钮样式 */
 #translation-toggle-btn {
     position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
     padding: 10px 20px !important;
     z-index: 2147483647 !important;
+    /* 确保在最顶层 */
     background-color: #005bff;
     color: white !important;
     border: 1px solid #fff !important;
     border-radius: 20px !important;
-    cursor: pointer !important;
     font-size: 14px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: sans-serif !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    /* 拖拽交互相关样式 */
+    cursor: grab !important;
+    user-select: none !important;
+    transition: background-color 0.3s;
+    /* 仅对背景色加过渡，不要给 left/top 加，否则拖动会延迟 */
+    line-height: 1 !important;
+    white-space: nowrap !important;
 }
 
-/* 移除所有干扰样式，确保文字继承原网页样式 */
+/* 按钮按下时的状态 */
+#translation-toggle-btn:active {
+    cursor: grabbing !important;
+    transform: scale(0.98);
+}
+
+/* 翻译文字标记：完全继承原网页样式，不产生视觉变化 */
 .translated-text-marker {
     color: inherit !important;
     font-size: inherit !important;
     font-family: inherit !important;
     font-weight: inherit !important;
+    line-height: inherit !important;
     background: none !important;
     border: none !important;
     display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
