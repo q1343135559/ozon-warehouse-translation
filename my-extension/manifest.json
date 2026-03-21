@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "区域映射翻译器",
+  "version": "1.0",
+  "description": "自动根据映射表替换网页中的区域名称",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "mapping.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
